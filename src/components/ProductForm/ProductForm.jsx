@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const expresiones = {
     nombres: /^[A-Z][a-zA-Z]*$/,
-    precio: /^\d+(\.\d{1,2})?$/,
+    
     stock: /^\d+(\.\d{1,2})?$/,
     marca: /^[a-zA-Z0-9\s\-_.]*$/,
     categoria: /^(Nuevo|Casi nuevo|Usado)$/,
@@ -26,7 +26,7 @@ const ProductForm = ({fetchData}) => {
     })
     const [formErrors, setFormErrors] = useState({
         nombre: '',
-        precio: '',
+        
         stock: '',
         marca: '',
         categoria: '',
@@ -66,9 +66,7 @@ const ProductForm = ({fetchData}) => {
             if (formErrors.nombre) {
                 toast.error("El Nombre debe contener únicamente letras y el primer caracter debe ser en mayúsculas");
             }
-            if (formErrors.precio) {
-                toast.error("El precio debe contener únicamente números");
-            }
+           
             if (formErrors.stock) {
                 toast.error("El stock debe contener únicamente números");
             }
@@ -150,9 +148,18 @@ const ProductForm = ({fetchData}) => {
             </div>
             <div className="grupo" id="grupo-categoria">
                 <label htmlFor="categoria">Categoría:</label>
-                <input className="formFields" onChange={(e) => handleUpdateProductFormValues(e.target.value, "categoria" )} type="text" id="categoria" name="categoria" required/>
-                
-            
+                <select
+                    className="formFields"
+                    onChange={(e) => handleUpdateProductFormValues(e.target.value, "categoria")}
+                    id="categoria"
+                    name="categoria"
+                    required
+                >
+                    <option value="">Selecciona una categoría</option>
+                    <option value="Nuevo">Nuevo</option>
+                    <option value="Casi nuevo">Casi nuevo</option>
+                    <option value="Usado">Usado</option>
+                </select>
             </div>
             <div className="grupo" id="grupo-descrip-corta">
                 <label htmlFor="descrip">Descripción Corta:</label>
