@@ -5,13 +5,12 @@ const ProductList = ({ products, fetchProductsData }) => {
     console.log(products) ; 
   return (
     <>
-      <div className="product-list">
+      <div className="card">
         {products.map((product)=>(
                 <ProductCard 
                 key={product.id}
                 product={product} 
                 fetchProductsData={fetchProductsData}/>
-           
             ))}
       </div>
     </>

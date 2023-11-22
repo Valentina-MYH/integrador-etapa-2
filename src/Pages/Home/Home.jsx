@@ -1,12 +1,45 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import './style.css'
+import ProductList from '../../components/ProductList/ProductList'
 
 const Home = () => {
+  const [ products, setProducts ] = useState([])
+  const [ error, setError ] = useState(false)
+  const [ isLoading, setIsLoading ] = useState(true)
+  useEffect(()=> {
+    fetchProductsData()
+  }, [])
+    const fetchProductsData = async () => {
+    const url = 'https://653ff79445bedb25bfc18468.mockapi.io/api/products-candles'
+    
+    try{
+      
+      const response = await fetch(url);
+      const data = await response.json();
+      setProducts(data);
+      setIsLoading(false)
+    }catch (error){
+      setError(true)
+
+    }
+    if ( error ) return <p>Hubo un error al cargar los productos</p>
+    if ( isLoading ) return <p>Cargando...</p>
+  }
   return (
-    <>
-     <div>Home</div>
+    <div className='cards-conteiner'>
+      <article className='article'>
+        
+        {  products.length > 0 ? (
+      <ProductList products={products} fetchProductsData /> 
+        ): ( <p>No hay productos para mostrar</p> )
+      }
     
+      </article>
     
-    </>
+      
+      
+    
+    </div>
     
   )
 }

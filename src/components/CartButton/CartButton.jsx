@@ -1,19 +1,16 @@
 import React, { useContext, useState } from 'react'
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaTrash } from "react-icons/fa";
 import { FaXmark} from "react-icons/fa6";
 import { CartContext } from '../../context/CartContext';
 
 const CartButton = () => {
-    const {cart} = useContext(CartContext)
-
+    const {cart, removeCart} = useContext(CartContext)
     const [isOpen, setIsOpen] = useState(false)
-
     const toggleCart=()=>{
         setIsOpen(prevState => !prevState)
-
     } 
   return (
-    <div className='carrito-compras'>
+    <>
         <button className='cart-button' onClick={toggleCart}> 
             <FaShoppingCart/>
         </button>
@@ -24,23 +21,28 @@ const CartButton = () => {
                         <FaXmark />
                     </button>
                     <h2>Carrito de compras</h2>
-                     {cart.length > 0 ? 
-                     <ul>
-                        {cart.map((productCard)=> (
+                    {cart.length > 0 ? 
+                        <ul>
+                            {cart.map((productCard) => (
                             <li key={productCard.id}>
-                                {productCard.nombre} - ${productCard.precio} 
+                                {productCard.nombre} - ${productCard.precio} - <FaTrash style={{cursos: 'pointer'}} onClick={()=> removeCart(productCard.id)}/>
+                                    
                             </li>
+                            
+                            ))}
+                            <br/>
 
-                        ))}
-                     </ul> : <p>El carrito esta vacio</p>
-                     }
+                            <h3>Total: $</h3>
+                        </ul>
+                        : <p>El carrito está vacío</p>
+                        }
                 </div>
             </div>
             )}
         
-    </div>)
+    </>)
 
-                    }
+}
 
 
 export default CartButton

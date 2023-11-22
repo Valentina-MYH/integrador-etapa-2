@@ -1,0 +1,45 @@
+
+.cards-container{
+    padding: 100px 8%;
+    background-color: #dfdfdf;
+    
+}
+.article{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,auto));
+    align-items: center;
+    gap:  2rem;
+    padding-top: 2rem;
+    text-align: center;
+    box-shadow: #503F40;
+    cursor: pointer;
+}
+
+.card{
+    padding: 0 20px 10px 20px;
+    background: transparent;
+    box-shadow: 5px 10px 10px 5px #503f40ad;
+    border-radius: 10px;
+
+}img{
+        margin-top: 20px;
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        
+    }
+h4{
+        font-size: 20px;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+    }
+    h5{
+        font-size: 18px;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+    i{
+     width: 35px;
+     color:#503F40;
+
+    }

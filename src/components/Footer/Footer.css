@@ -3,9 +3,10 @@
     bottom: 0;
     background-color: #9F968F;
     color: white;
-    position: absolute;
-    bottom:0;
+   
   }
+
+  
   .Footer .conteiner .lorem {
     margin: 10px;
     text-align: center;
@@ -21,7 +22,7 @@
   .Footer .conteiner .contacto ul li i {
     width: 70px;
   }
-  
+ 
   @media (min-width: 800px) {
     .Footer .conteiner {
       display: grid;
@@ -41,7 +42,5 @@
       padding-bottom: 40px;
       padding-left: 40%;
     }
-    .Footer .contacto ul {
-      align-items: center;
-    }
+    
   }

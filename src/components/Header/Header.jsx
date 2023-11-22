@@ -17,18 +17,22 @@ const Header = () => {
     <div className='Header'>
       <div className="logo">
         <img src={log} id="logo" alt="imagen" style={{ width: '100px' }} />
-      </div>
-      <h2>Mila’s CANDLES</h2>
-      <nav>
+      
+      </div><h2>Mila’s CANDLES</h2>
+      
+      <div className='navbar'>
         <ul id="nav-menu">
             <li><Link className="Link"to={"/"} element={<Home/>}>Home</Link></li>
             <li><Link className="Link"to={"/alta"} element={<Alta/>}>Update</Link></li>
             <li><Link className="Link"to={"/contacto"} element={<Contacto/>}>Contacto</Link></li>
             <li><Link className="Link"to={"/nosotros"} element={<Nosotros/>}>Sobre Nosotros</Link></li>
         </ul>
-      </nav>
-      
+      </div>
+      <div className="carrito-compras">
         <CartButton/>
+      </div>
+      
+        
       
 
       
