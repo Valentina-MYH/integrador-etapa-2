@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
-import { toast } from 'react-toastify'; // Importa toast desde react-toastify
+import { toast } from 'react-toastify';
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
@@ -77,7 +77,7 @@ const Contacto = () => {
     <div className='contacto-main'>
       <h3>Contacto</h3>
       <form className='form' id='form' onSubmit={handleSubmit}>
-        {/* Resto del formulario */}
+        
         <div className='grupo' id='grupo-nom'>
           <input
             className='formFields'
