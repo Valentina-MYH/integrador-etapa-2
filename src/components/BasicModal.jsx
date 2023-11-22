@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactModal from 'react-modal'
+
+
 const customStyles={
     top: '50',
     bottom: 'auto',
@@ -8,23 +10,22 @@ const customStyles={
     
 
 }
-const BasicModal = ({isOpen, setIsOpen}) => {
+  const BasicModal = ({isOpen, setIsOpen}) => {
   const closeModal = () => setIsOpen(false)
     return (
+
     <ReactModal
+    isOpen={isOpen}
     style={customStyles}
-    isOpen={isOpren}
+    
    
 
     >
-        <div>
+        <div >
             <div className="modal-header">
-                <button onClick={()=>setIsOpen(false)}>x</button>
+                <button onClick={closeModal}>x</button>
                 <h1>Soy el modal</h1>
             </div>
-            
-            
-            <p>descripcion modal</p>
         </div>
         
         

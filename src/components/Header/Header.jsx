@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Alta from '../../Pages/Alta/Alta'
 import Contacto from '../../Pages/Contacto/Contacto'
@@ -9,9 +9,12 @@ import log from '../../assets/img/log.jpeg'
 
 import './Header.css'
 import CartButton from '../CartButton/CartButton'
+//import BasicModal from '../BasicModal'
 
 
 const Header = () => {
+  
+  //const [openModal, setOpenModal] = useState(second)
 
   return (    
     <div className='Header'>
@@ -31,8 +34,9 @@ const Header = () => {
       <div className="carrito-compras">
         <CartButton/>
       </div>
+
       
-        
+      
       
 
       
@@ -43,3 +47,8 @@ const Header = () => {
 }
 
 export default Header
+/**<button onClick={()=> setOpenModal(!openModals)}>Abrir Modal</button>
+        <BasicModal 
+        isOpen={openModal}
+        setIsOpen={setOpenModal}
+        /> */
