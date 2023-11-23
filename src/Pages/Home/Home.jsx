@@ -26,20 +26,30 @@ const Home = () => {
     if ( isLoading ) return <p>Cargando...</p>
   }
   return (
-    <div className='cards-conteiner'>
-      <aside className='article'>
-        
-        {  products.length > 0 ? (
-      <ProductList products={products} fetchProductsData /> 
-        ): ( <p>No hay productos para mostrar</p> )
-      }
-    
-      </aside>
+    <>
+      <article class="content">
+            <div class="text">
+                <h3>Velas Aromaticas</h3>
+                <p>Cera de soja 100% Veganas</p>
+                
+            </div>
+            
+      </article>
+      <div className='cards-conteiner'>
+        <aside className='article'>
+          
+          {  products.length > 0 ? (
+        <ProductList products={products} fetchProductsData /> 
+          ): ( <p>No hay productos para mostrar</p> )
+        }
+      
+        </aside>
+      </div>
     
       
       
     
-    </div>
+    </>
     
   )
 }
