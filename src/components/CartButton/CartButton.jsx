@@ -1,14 +1,23 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FaShoppingCart, FaTrash } from "react-icons/fa";
 import { FaXmark} from "react-icons/fa6";
 import { CartContext } from '../../context/CartContext';
+import './style.css'
 
 const CartButton = () => {
     const {cart, removeCart} = useContext(CartContext)
     const [isOpen, setIsOpen] = useState(false)
+    const [total, setTotal] = useState(0);
     const toggleCart=()=>{
         setIsOpen(prevState => !prevState)
     } 
+    useEffect(() => {
+        const newTotal = cart.reduce((acc, productCard) =>{
+            return acc + productCard.precio
+        },0)
+        setTotal(newTotal);
+  }, [cart]);
+
   return (
     <>
         <button className='cart-button' onClick={toggleCart}> 
@@ -22,20 +31,23 @@ const CartButton = () => {
                     </button>
                     <h2>Carrito de compras</h2>
                     {cart.length > 0 ? 
-                        <ul>
-                            {cart.map((productCard) => (
-                            <li key={productCard.id}>
-                                {productCard.nombre} - ${productCard.precio} - <FaTrash style={{cursos: 'pointer'}} onClick={()=> removeCart(productCard.id)}/>
-                                    
-                            </li>
+                        <ul className='cart-list'>
+                            {cart.map((product) => (
+                            <li key={product.id}>
+                    {product.nombre} - ${product.precio} x {product.cantidad} -{' '}
+                    <FaTrash
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => removeCart(product.id)}
+                    />
+                  </li>
                             
                             ))}
-                            <br/>
+                           
 
-                            <h3>Total: $</h3>
+                           
                         </ul>
                         : <p>El carrito está vacío</p>
-                        }
+                        } <h3>Total: ${total}</h3>
                 </div>
             </div>
             )}

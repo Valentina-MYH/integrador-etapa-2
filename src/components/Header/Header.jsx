@@ -6,41 +6,44 @@ import Nosotros from '../../Pages/Nosotros/Nosotros'
 import Home from '../../Pages/Home/Home'
 import log from '../../assets/img/log.jpeg'
 
-
+import { FaBars } from "react-icons/fa6";
 import './Header.css'
 import CartButton from '../CartButton/CartButton'
 //import BasicModal from '../BasicModal'
 
 
 const Header = () => {
+function openMenu(){
+  let link = document.getElementById("links");
+  if(link.style.display === 'flex'){
+      link.style.display = "none";
+  }else{
+      link.style.display = 'flex';
+  }
+}
   
   //const [openModal, setOpenModal] = useState(second)
 
   return (    
     <div className='Header'>
-      <div className="logo">
+      <Link to={"/"}>
         <img src={log} id="logo" alt="imagen" style={{ width: '100px' }} />
-      
-      </div><h2>Mila’s CANDLES</h2>
-      
-      <div className='navbar'>
+      </Link>
+      <h2>Mila’s CANDLES</h2>
+      <Link element={'javascript:void(0);'} onClick={openMenu}>
+        <FaBars style={ {color:' #9F968F'} } />
+      </Link>
+     
         <ul id="nav-menu">
-            <li><Link className="Link"to={"/"} element={<Home/>}>Home</Link></li>
-            <li><Link className="Link"to={"/alta"} element={<Alta/>}>Update</Link></li>
-            <li><Link className="Link"to={"/contacto"} element={<Contacto/>}>Contacto</Link></li>
-            <li><Link className="Link"to={"/nosotros"} element={<Nosotros/>}>Sobre Nosotros</Link></li>
+            <li><Link className="Link"to={"/"} element={<Home/>}>  Home  </Link></li>
+            <li><Link className="Link"to={"/alta"} element={<Alta/>}>   Update  </Link></li>
+            <li><Link className="Link"to={"/contacto"} element={<Contacto/>}>Contacto  </Link></li>
+            <li><Link className="Link"to={"/nosotros"} element={<Nosotros/>}>  Sobre Nosotros</Link></li>
         </ul>
-      </div>
+      
       <div className="carrito-compras">
         <CartButton/>
       </div>
-
-      
-      
-      
-
-      
-        
     </div>
   )
   

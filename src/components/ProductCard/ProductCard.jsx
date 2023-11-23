@@ -13,10 +13,10 @@ const ProductCard = ({ product, fetchProductsData}) => {
     <div className='product-card'>
       
         <div className='card'>
-          <img src={product.foto}/>
-          <h2>{product.nombre}</h2>
+          <img className="img"src={product.foto}/>
+          <h4>{product.nombre}</h4>
           <p>{product.descripcion}</p>
-          <p>Precio: {product.precio}</p>
+          <h5>Precio: {product.precio}</h5>
           
           <button onClick={() => addToCart(product)}>
             {" "}

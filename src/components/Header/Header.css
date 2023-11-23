@@ -10,7 +10,6 @@
     align-items: center;
 }
 
-
 i{
     color:#9F968F;
 
@@ -43,11 +42,10 @@ li{font-size: 12px;
     color: white;
    
              
-}.Links{
-    
-        display: none;
-        flex-direction: column;
+}#nav-menu{
         width: 100%;
+        
+        
             
     }
 .Link:hover{
@@ -66,10 +64,6 @@ li{font-size: 12px;
         color:white;
     }
     
-    ul{display: flex;
-            
-
-    } 
     li{
         
         margin:10px;

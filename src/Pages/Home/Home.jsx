@@ -27,14 +27,14 @@ const Home = () => {
   }
   return (
     <div className='cards-conteiner'>
-      <article className='article'>
+      <aside className='article'>
         
         {  products.length > 0 ? (
       <ProductList products={products} fetchProductsData /> 
         ): ( <p>No hay productos para mostrar</p> )
       }
     
-      </article>
+      </aside>
     
       
       
